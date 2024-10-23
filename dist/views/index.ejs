@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery App</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <style>
+        .custom-file-input::before {
+            content: 'Choose File';
+            display: inline-block;
+            background: #007bff;
+            color: #fff;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            padding: 5px 15px;
+            cursor: pointer;
+        }
+
+        .custom-file-input {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1>Gallery</h1>
+        <div class="row" id="gallery">
+            <% for (let i = 1; i < 12; i++) { %>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Image <%= i %>">
+                    <div class="card-body">
+                        <h5 class="card-title">Image <%= i %></h5>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4" id="addButtonCard">
+                <div class="card">
+                    <div class="card-body">
+                        <form id="addPhotoForm">
+                            <div class="form-group">
+                                <label for="title">Title</label>
+                                <input type="text" class="form-control" id="title" name="title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="file">Upload File</label>
+                                <input type="file" class="form-control-file" id="file" name="file" accept="image/*" required>
+                            </div>
+                        </form>
+                    </div>
+                    <button form="addPhotoForm" type="submit" class="btn btn-primary">Add Photo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
