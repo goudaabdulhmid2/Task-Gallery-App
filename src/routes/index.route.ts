@@ -28,8 +28,6 @@ const upload = multer({
 router.get("/", async (req, res, next) => {
   try {
     const photos = await Photo.find();
-
-    /** @TODO Render Existing Photos in index.ejs */
     res.render("index", { photos });
   } catch (err) {
     console.error(err);
